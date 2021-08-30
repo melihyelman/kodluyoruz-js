@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Signup from './pages/Auth/Signup';
 import Signin from './pages/Auth/Signin';
 import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <div id='content'>
           <Switch>
             <Route path='/' exact component={Products}></Route>
+            <Route path='/product/:productId'  component={ProductDetail}></Route>
             <Route path='/signin' component={Signin}></Route>
             <Route path='/signup' component={Signup}></Route>
           </Switch>

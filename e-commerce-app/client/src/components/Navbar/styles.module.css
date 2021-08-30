@@ -10,6 +10,9 @@
 .nav .left {
     display: flex;
 }
+.nav .left .logo {
+    font-weight: bold;
+}
 .nav .left .menu {
     display: flex;
     margin-left: 40px;
