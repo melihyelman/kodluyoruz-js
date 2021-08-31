@@ -36,7 +36,7 @@ function Navbar() {
             {items.length > 0 && (
               <Link to='basket'>
                 <Button colorScheme='pink' variant='outline'>
-                  Basket({items.length})
+                  Basket ({items.length})
                 </Button>
               </Link>
             )}

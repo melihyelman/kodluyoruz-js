@@ -5,6 +5,8 @@ import Signup from './pages/Auth/Signup';
 import Signin from './pages/Auth/Signin';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import Error404 from './pages/Error404';
+import Basket from './pages/Basket';
 import Profile from './pages/Profile';
 import ProtectedRoute from './pages/ProtectedRoute';
 
@@ -23,7 +25,9 @@ function App() {
             ></ProtectedRoute>
             <Route path='/product/:productId' component={ProductDetail}></Route>
             <Route path='/signin' component={Signin}></Route>
+            <Route path='/basket' component={Basket}></Route>
             <Route path='/signup' component={Signup}></Route>
+            <Route path='*' component={Error404}></Route>
           </Switch>
         </div>
       </div>

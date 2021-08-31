@@ -26,6 +26,7 @@ function ProductDetail() {
     <div>
       <Button
         colorScheme={findBasketItem ? 'pink' : 'green'}
+        variant='solid'
         onClick={() => addToBasket(data, findBasketItem)}
       >
         {findBasketItem ? 'Remove from basket' : 'Add to basket'}
