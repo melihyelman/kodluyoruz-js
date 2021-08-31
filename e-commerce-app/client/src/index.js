@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 //context
 import { AuthProvider } from './contexts/AuthContext';
+import { BasketProvider } from './contexts/BasketContext';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -27,7 +28,9 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
         <AuthProvider>
-          <App />
+          <BasketProvider>
+            <App />
+          </BasketProvider>
         </AuthProvider>
       </ChakraProvider>
       <ReactQueryDevtools initialIsOpen={false} />
