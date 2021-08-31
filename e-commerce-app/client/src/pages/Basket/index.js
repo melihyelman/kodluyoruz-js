@@ -7,14 +7,46 @@ import {
   List,
   ListItem,
   Text,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  FormControl,
+  FormLabel,
+  Textarea,
 } from '@chakra-ui/react';
-import React from 'react';
+import { useRef, useState } from 'react';
+import { postOrder } from '../../api';
 import { useBasket } from '../../contexts/BasketContext';
 
 function Basket() {
-  const { items, removeFromBasket } = useBasket();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const initialRef = useRef();
+  const finalRef = useRef();
+
+  const [address, setAddress] = useState('');
+
+  const { items, removeFromBasket, emptyBasket } = useBasket();
 
   const total = items.reduce((acc, item) => acc + item.price, 0);
+
+  const handleSubmit = async () => {
+    const itemsIds = items.map((item) => item._id);
+    const input = {
+      address,
+      items: JSON.stringify(itemsIds),
+    };
+
+    await postOrder(input);
+
+    emptyBasket();
+    onClose();
+    setAddress('');
+  };
 
   return (
     <Box p={5}>
@@ -54,6 +86,39 @@ function Basket() {
           <Box mt={10}>
             <Text fontSize={22}>Total {total} TL</Text>
           </Box>
+          <Button mt='2' size='sm' colorScheme='green' onClick={onOpen}>
+            Order
+          </Button>
+          <Modal
+            initialFocusRef={initialRef}
+            finalFocusRef={finalRef}
+            isOpen={isOpen}
+            onClose={onClose}
+          >
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Order</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody pb={6}>
+                <FormControl>
+                  <FormLabel>Address</FormLabel>
+                  <Textarea
+                    ref={initialRef}
+                    placeholder='address'
+                    value={address}
+                    onChange={({ target }) => setAddress(target.value)}
+                  />
+                </FormControl>
+              </ModalBody>
+
+              <ModalFooter>
+                <Button colorScheme='blue' mr={3} onClick={handleSubmit}>
+                  Save
+                </Button>
+                <Button onClick={onClose}>Cancel</Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </>
       )}
     </Box>
