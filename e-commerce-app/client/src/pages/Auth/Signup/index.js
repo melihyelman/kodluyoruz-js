@@ -15,7 +15,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 
 import validationSchema from './validations';
 
-function Signup() {
+function Signup({ history }) {
   const { login } = useAuth();
   const formik = useFormik({
     initialValues: {
@@ -31,6 +31,7 @@ function Signup() {
           password: values.password,
         });
         login(registerResponse);
+        history.push('/profile');
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }
