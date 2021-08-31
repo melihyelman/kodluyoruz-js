@@ -9,6 +9,7 @@ import Error404 from './pages/Error404';
 import Basket from './pages/Basket';
 import Profile from './pages/Profile';
 import ProtectedRoute from './pages/ProtectedRoute';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
             <ProtectedRoute
               path='/profile'
               component={Profile}
+            ></ProtectedRoute>
+            <ProtectedRoute
+              path='/admin'
+              admin={true}
+              component={Admin}
             ></ProtectedRoute>
             <Route path='/product/:productId' component={ProductDetail}></Route>
             <Route path='/signin' component={Signin}></Route>
