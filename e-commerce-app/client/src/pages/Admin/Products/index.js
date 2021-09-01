@@ -6,6 +6,7 @@ import { Table, Popconfirm } from 'antd';
 import { fetchProductList, deleteProduct } from '../../../api';
 import { Text } from '@chakra-ui/layout';
 import { Link } from 'react-router-dom';
+import { Button, Flex } from '@chakra-ui/react';
 
 function Products() {
   const queryClient = useQueryClient();
@@ -71,9 +72,16 @@ function Products() {
 
   return (
     <div>
-      <Text fontSize='2xl' p='5'>
-        Products
-      </Text>
+      <Flex justifyContent='space-between' alignItems='center'>
+        <Text fontSize='2xl' p='5'>
+          Products
+        </Text>
+        <Link to='/admin/products/new'>
+          <Button width='xl' colorScheme='whatsapp'>
+            New
+          </Button>
+        </Link>
+      </Flex>
       <Table dataSource={data} columns={columns} rowKey='_id'></Table>
     </div>
   );

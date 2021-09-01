@@ -4,6 +4,7 @@ import Home from './Home';
 import Orders from './Orders';
 import Products from './Products';
 import ProductDetail from './ProductDetail';
+import NewProduct from './Products/new';
 import styles from './styles.module.css';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 
@@ -29,6 +30,7 @@ function Admin() {
           <Route exact path={path} component={Home} />
           <Route path={`${path}/orders`} component={Orders} />
           <Route exact path={`${path}/products`} component={Products} />
+          <Route exact path={`${path}/products/new`} component={NewProduct} />
           <Route
             path={`${path}/products/:productId`}
             component={ProductDetail}
