@@ -2,9 +2,11 @@ import { Box, Image, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { useBasket } from '../../contexts/BasketContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 function Card({ item }) {
   const { addToBasket, items } = useBasket();
+  const { loggedIn } = useAuth();
 
   const findBasketItem = items.find(
     (basketItem) => basketItem._id === item._id
@@ -39,6 +41,7 @@ function Card({ item }) {
         colorScheme={findBasketItem ? 'pink' : 'green'}
         variant='solid'
         width='full'
+        disabled={!loggedIn}
         onClick={() => addToBasket(item, findBasketItem)}
       >
         {findBasketItem ? 'Remove from basket' : 'Add to basket'}

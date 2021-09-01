@@ -6,7 +6,6 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
   Flex,
   Spinner,
 } from '@chakra-ui/react';

@@ -3,6 +3,7 @@ import React from 'react';
 import Home from './Home';
 import Orders from './Orders';
 import Products from './Products';
+import ProductDetail from './ProductDetail';
 import styles from './styles.module.css';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 
@@ -27,7 +28,11 @@ function Admin() {
         <Switch>
           <Route exact path={path} component={Home} />
           <Route path={`${path}/orders`} component={Orders} />
-          <Route path={`${path}/products`} component={Products} />
+          <Route exact path={`${path}/products`} component={Products} />
+          <Route
+            path={`${path}/products/:productId`}
+            component={ProductDetail}
+          />
         </Switch>
       </Box>
     </div>
