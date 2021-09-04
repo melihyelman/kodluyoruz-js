@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import {
   toggleTodoAsync,
   deleteTodoAsync,
-  selectFilteredTodos,
   getTodosAsync,
-} from '../redux/todos/todosSlice';
+} from '../redux/todos/services';
+import { selectFilteredTodos } from '../redux/todos/todosSlice';
 
 import { useSelector, useDispatch } from 'react-redux';
 import Loading from './Loading';

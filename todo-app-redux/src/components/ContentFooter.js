@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -10,6 +10,10 @@ import {
 function ContentFooter() {
   const items = useSelector(selectTodos);
   const activeFilter = useSelector((state) => state.todos.activeFilter);
+
+  useEffect(() => {
+    localStorage.setItem('activeFilter', activeFilter);
+  }, [activeFilter]);
 
   const dispatch = useDispatch();
 
