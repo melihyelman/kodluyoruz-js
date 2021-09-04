@@ -38,3 +38,13 @@ export const deleteTodoAsync = createAsyncThunk(
     return id;
   }
 );
+
+export const clearCompletedAsync = createAsyncThunk(
+  'todos/clearCompleted',
+  async () => {
+    const res = await axios.delete(
+      `${process.env.REACT_APP_BASE_ENDPOINT}/todos`
+    );
+    return res.data;
+  }
+);
