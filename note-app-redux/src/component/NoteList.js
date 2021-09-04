@@ -1,7 +1,16 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
+import { filteredNotes } from '../redux/notes/notesSlice';
+import NoteListItem from './NoteListItem';
 
 function NoteList() {
-  return <div>NoteList </div>;
+  const notes = useSelector(filteredNotes);
+  return (
+    <div className='noteList'>
+      {notes.map((note, i) => (
+        <NoteListItem key={i} note={note.title} color={note.color} />
+      ))}
+    </div>
+  );
 }
 
 export default NoteList;
