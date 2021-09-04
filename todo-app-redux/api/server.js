@@ -47,7 +47,7 @@ let todos = [
 
 app.get('/todos', (req, res) => res.send(todos));
 
-app.post('todos', (req, res) => {
+app.post('/todos', (req, res) => {
   const todo = { title: req.body.title, id: nanoid(), completed: false };
   todos.push(todo);
   return res.send(todo);
