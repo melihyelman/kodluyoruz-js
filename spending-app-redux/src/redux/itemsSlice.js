@@ -326,5 +326,6 @@ export const productsSlice = createSlice({
 });
 
 export const selectProducts = (state) => state.products.items;
+export const selectMoney = (state) => state.products.money;
 
 export default productsSlice.reducer;

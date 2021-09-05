@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    outline: none;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    color: #333;
+}
+.header {
+    font-size: 32px;
+    background: #fff;
+    padding: 30px 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3em;
+}
+.header-img {
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 125px;
+    height: 125px;
+    margin: 10px auto 25px;
+    border-radius: 125px;
+}
+.money-bar {
+    color: #fff;
+    background-color: #2ecc71;
+    background: linear-gradient(
+180deg,#2ecc71,#1abc9c);
+    padding: 20px;
+    margin: 10px 0;
+    font-family: Roboto,sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    top: 0;
+    position: sticky;
+    z-index: 9999;
+}
+.items {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-gap: 10px 10px;
+}
+.item {
+    max-width: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 15px;
+    width: 100%;
+}
+.item-img {
+    display: block;
+    margin: 15px auto;
+    height: 120px;
+    max-width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.item-title {
+    font-size: 22px;
+    font-weight: 700;
+}
+.item-price {
+    font-size: 20px;
+    color: #24c486;
+}
+.items-buttons {
+    font-size: 20px;
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px 10px;
+    margin-top: 25px;
+}
+button {
+    cursor: pointer;
+    padding: 10px 12px;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    font-weight: 700;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+input {
+    padding: 9px 12px;
+    border-radius: 3px;
+    border: 1px solid #b2bec3;
+    color: #333;
+    font-family: Roboto,sans-serif;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.item-sell {
+    background: #f1f2f6!important;
+    border: none;
+    color: #333;
+    cursor: auto;
+    touch-action: manipulation;
+}
+.item-input {
+    font-size: 16px;
+    text-align: center;
+}
+.item-buy {
+    background: linear-gradient(
+180deg,#2ecc71,#1abc9c);
+}
