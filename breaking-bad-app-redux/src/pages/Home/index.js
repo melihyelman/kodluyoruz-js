@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-css';
 import './styles.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +9,7 @@ import Error from '../../components/Error';
 
 function Home() {
   const characters = useSelector((state) => state.characters.items);
-  const isLoading = useSelector((state) => state.characters.isLoading);
+  const status = useSelector((state) => state.characters.status);
   const nextPage = useSelector((state) => state.characters.page);
   const hasNextPage = useSelector((state) => state.characters.hasNextPage);
   const error = useSelector((state) => state.characters.error);
@@ -16,10 +17,12 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCharacters());
-  }, [dispatch]);
+    if (status === 'idle') {
+      dispatch(fetchCharacters());
+    }
+  }, [dispatch, status]);
 
-  if (error) return <Error message={error} />;
+  if (status === 'failed') return <Error message={error} />;
 
   return (
     <div>
@@ -30,23 +33,25 @@ function Home() {
       >
         {characters.map((character) => (
           <div key={character.char_id}>
-            <img
-              src={character.img}
-              alt={character.name}
-              className='character'
-            />
-            <div className='charName'>{character.name}</div>
+            <Link to={`/char/${character.char_id}`}>
+              <img
+                src={character.img}
+                alt={character.name}
+                className='character'
+              />
+              <div className='charName'>{character.name}</div>
+            </Link>
           </div>
         ))}
       </Masonry>
       <div style={{ padding: '20px 0 40px 0', textAlign: 'center' }}>
-        {isLoading && <Loading />}
-        {hasNextPage && !isLoading && (
+        {status === 'loading' && <Loading />}
+        {hasNextPage && status !== 'loading' && (
           <button onClick={() => dispatch(fetchCharacters(nextPage))}>
             Load more ({nextPage})
           </button>
         )}
-        {!hasNextPage && !isLoading && <div>There is nothing to be show</div>}
+        {!hasNextPage && <div>There is nothing to be show</div>}
       </div>
     </div>
   );
