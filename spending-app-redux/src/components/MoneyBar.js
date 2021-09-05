@@ -8,9 +8,9 @@ function MoneyBar() {
   return (
     <div className='money-bar'>
       {Number(money).toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'USD',
-        })}
+        style: 'currency',
+        currency: 'USD',
+      })}
     </div>
   );
 }

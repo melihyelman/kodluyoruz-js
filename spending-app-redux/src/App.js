@@ -5,6 +5,7 @@ import Container from './components/Container';
 import Item from './components/Item';
 import Header from './components/Header';
 import MoneyBar from './components/MoneyBar';
+import Receipt from './components/Receipt';
 
 function App() {
   const products = useSelector(selectProducts);
@@ -18,6 +19,7 @@ function App() {
           <Item key={product.id} product={product} />
         ))}
       </div>
+      <Receipt />
     </Container>
   );
 }

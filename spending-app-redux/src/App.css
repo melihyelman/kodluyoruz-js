@@ -133,3 +133,53 @@ input::-webkit-inner-spin-button {
     background: linear-gradient(
 180deg,#2ecc71,#1abc9c);
 }
+.receipt {
+    background-color: #fff;
+    text-align: center;
+    max-width: 100%;
+    font-size: 18px;
+    padding: 15px 15px 30px;
+    margin-top: 10px;
+}
+.receipt-header {
+    font-size: 28px;
+    padding: 15px 15px 25px;
+    font-weight: 700;
+}
+.receipt-items {
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: grid;
+    grid-gap: 10px 0;
+    font-size: 18px;
+    grid-template-columns: 170px 45px 75px;
+}
+.receipt-item-name {
+    text-align: left;
+    text-overflow: ellipsis;
+}
+.receipt-item-count {
+    text-align: left;
+}
+.receipt-item-price {
+    color: #24c486;
+    text-align: right;
+    font-weight: 700;
+}
+.receipt-total {
+    font-weight: 700;
+    max-width: 300px;
+    border-top: 1px solid #333;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    justify-content: space-between;
+    margin-top: 10px;
+    display: flex;
+}
+.receipt-total-money {
+    color: #24c486;
+    text-align: right;
+}
