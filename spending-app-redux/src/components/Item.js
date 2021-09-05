@@ -12,7 +12,11 @@ function Item({ product }) {
           currency: 'USD',
         })}
       </div>
-      <Buttons itemCount={product.count} />
+      <Buttons
+        itemCount={product.count}
+        itemId={product.id}
+        itemPrice={product.price}
+      />
     </div>
   );
 }

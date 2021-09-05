@@ -99,6 +99,9 @@ button {
     user-select: none;
     touch-action: manipulation;
 }
+button:disabled {
+    cursor: not-allowed;
+}
 input {
     padding: 9px 12px;
     border-radius: 3px;
@@ -109,6 +112,11 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .item-sell {
     background: #f1f2f6!important;

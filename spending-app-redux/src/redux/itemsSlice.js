@@ -231,7 +231,7 @@ export const productsSlice = createSlice({
       {
         id: 33,
         title: 'McDonalds Franchise',
-        price: 15000000,
+        price: 1500000,
         img: 'https://neal.fun/spend/images/mcdonalds-franchise.jpg',
         count: 0,
       },
@@ -322,10 +322,26 @@ export const productsSlice = createSlice({
     ],
     money: 100000000000,
   },
-  reducers: {},
+  reducers: {
+    changeCount: (state, action) => {
+      const { id, count } = action.payload;
+      const item = state.items.find((item) => item.id === id);
+      const totalPrice = item.price * count;
+      if (state.money > totalPrice) {
+        item.count = count;
+        const m = state.items.reduce(
+          (acc, current) => acc + current.price * current.count,
+          0
+        );
+        state.money = 100000000000 - m;
+      }
+    },
+  },
 });
 
 export const selectProducts = (state) => state.products.items;
 export const selectMoney = (state) => state.products.money;
+
+export const { changeCount } = productsSlice.actions;
 
 export default productsSlice.reducer;

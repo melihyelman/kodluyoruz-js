@@ -6,11 +6,11 @@ function MoneyBar() {
   const money = useSelector(selectMoney);
 
   return (
-    <div class='money-bar'>
+    <div className='money-bar'>
       {Number(money).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      })}
+          style: 'currency',
+          currency: 'USD',
+        })}
     </div>
   );
 }

@@ -2,11 +2,11 @@ import React from 'react';
 
 function Header() {
   return (
-    <div class='header'>
+    <div className='header'>
       <img
         alt='Bill Gates'
         src='https://neal.fun/spend/billgates.jpg'
-        class='header-img'
+        className='header-img'
       />
       Spend Bill Gates' Money
     </div>
