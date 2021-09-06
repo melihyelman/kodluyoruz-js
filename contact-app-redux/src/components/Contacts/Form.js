@@ -5,13 +5,15 @@ import { addContact } from '../../redux/contactSlice';
 
 function Form() {
   const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!name) return;
-    dispatch(addContact({ id: nanoid(), name }));
+    if (!name || !number) return;
+    dispatch(addContact({ id: nanoid(), name, number }));
     setName('');
+    setNumber('');
   };
   return (
     <div>
@@ -21,6 +23,14 @@ function Form() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <input
+          placeholder='number'
+          value={number}
+          onChange={(e) => setNumber(e.target.value)}
+        />
+        <div className='btn'>
+          <button type='submit'>Add</button>
+        </div>
       </form>
     </div>
   );
