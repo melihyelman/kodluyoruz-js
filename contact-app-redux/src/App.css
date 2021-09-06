@@ -42,3 +42,25 @@ ul,li {
 .btn > button {
   padding: 5px 10px;
 }
+
+.deleteBtn {
+  width: 18px;
+  height: 20px;
+  background-color: red;
+  color: white;
+  text-align: center;
+  cursor: pointer ;
+}
+.edit > span {
+  margin-left: 10px;
+  cursor: pointer ;
+  font-size: 12px;
+}
+.deleteAll {
+  text-align: right;
+  cursor: pointer;
+  font-size: 12px;
+}
+.deleteAll:hover {
+  text-decoration: underline;
+}
