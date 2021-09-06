@@ -1,12 +1,16 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 
-export const contectAdapter = createEntityAdapter();
-const initialState = contectAdapter.getInitialState();
+export const contactAdapter = createEntityAdapter();
+const initialState = contactAdapter.getInitialState();
+
+export const contactSelectors = contactAdapter.getSelectors(
+  (state) => state.contacts
+);
 
 const contactSlice = createSlice({
   name: 'contacts',
   initialState,
-  reducers: { addContact: contectAdapter.addOne },
+  reducers: { addContact: contactAdapter.addOne },
 });
 
 export const { addContact } = contactSlice.actions;
